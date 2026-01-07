@@ -18,4 +18,112 @@
 
 <div class="container">
 
-  
+  <!-- FILTER PANEL -->
+  <aside class="filters">
+    <h3>Filter by Price</h3>
+    <label><input type="radio" name="price"> Up to ₹500</label>
+    <label><input type="radio" name="price"> ₹500 – ₹1000</label>
+    <label><input type="radio" name="price"> Above ₹1000</label>
+
+    <h3>Seller</h3>
+    <label><input type="checkbox"> Amazon</label>
+    <label><input type="checkbox"> 1mg</label>
+    <label><input type="checkbox"> PharmEasy</label>
+  </aside>
+
+  <!-- PRODUCTS -->
+  <main class="products" id="productList">
+
+    <!-- 1–6 -->
+    <div class="product-card" onclick="openProduct('Zenius PCOD Care Capsule','₹727','Ayurvedic capsules to support hormonal balance & cycle regulation.')">
+      <img src="1.png">
+      <h4>Zenius PCOD Care Capsule</h4>
+      <p class="price">₹727 <span>₹749</span></p>
+      <p class="seller">Seller: 1mg</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('Nveda PCOD Care Capsule','₹430','Herbal formulation for PCOD & hormonal balance.')">
+      <img src="2.png">
+      <h4>Nveda PCOD Care Capsule</h4>
+      <p class="price">₹430 <span>₹690</span></p>
+      <p class="seller">Seller: 1mg</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('Cureayu PCOD Wellness','₹749','Supports ovulation, reduces acne & weight issues.')">
+      <img src="3.png">
+      <h4>Cureayu PCOD Wellness</h4>
+      <p class="price">₹749 <span>₹936</span></p>
+      <p class="seller">Seller: Amazon</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('PCOD Complete Care Kit','₹999','Complete care including tablets, tea & supplements.')">
+      <img src="4.png">
+      <h4>PCOD Complete Care Kit</h4>
+      <p class="price">₹999 <span>₹1299</span></p>
+      <p class="seller">Seller: PharmEasy</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('Hormonal Balance Tablets','₹599','Controls insulin resistance & cycle irregularities.')">
+      <img src="6.png">
+      <h4>Hormonal Balance Tablets</h4>
+      <p class="price">₹599 <span>₹799</span></p>
+      <p class="seller">Seller: 1mg</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('PCOD Period Relief','₹499','Reduces cramps, bloating & menstrual pain.')">
+      <img src="7.png">
+      <h4>PCOD Period Relief</h4>
+      <p class="price">₹499 <span>₹699</span></p>
+      <p class="seller">Seller: Amazon</p>
+    </div>
+
+    <!-- 7–25 (Additional Products) -->
+    <div class="product-card" onclick="openProduct('Vaidban PCOD Complete Kit','₹1,299','Ayurvedic solution for hormone balance & regular periods.')">
+      <img src="8.png">
+      <h4>Vaidban PCOD Complete Kit</h4>
+      <p class="price">₹1,299 <span>₹1,599</span></p>
+      <p class="seller">Seller: Amazon</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('Seven Cure PCOD Tablets','₹899','Myo-Inositol & NAC for PCOD management.')">
+      <img src="9.png">
+      <h4>Seven Cure PCOD Tablets</h4>
+      <p class="price">₹899 <span>₹1,199</span></p>
+      <p class="seller">Seller: PharmEasy</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('Narie PCOS Care','₹749','Restores hormonal balance & ovarian health.')">
+      <img src="10.png">
+      <h4>Narie PCOS Care</h4>
+      <p class="price">₹749 <span>₹999</span></p>
+      <p class="seller">Seller: 1mg</p>
+    </div>
+
+    <div class="product-card" onclick="openProduct('Grocare Turmeric Supplement','₹599','Helps dissolve ovarian cysts naturally.')">
+      <img src="11.png">
+      <h4>Grocare Turmeric Supplement</h4>
+      <p class="price">₹599 <span>₹799</span></p>
+      <p class="seller">Seller: Amazon</p>
+    </div>
+
+    <!-- Add remaining till 25 -->
+    <!-- You can duplicate pattern for more products -->
+
+  </main>
+
+</div>
+
+<!-- PRODUCT MODAL -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProduct()">✖</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalPrice"></p>
+    <p id="modalDesc"></p>
+    <button class="buy">Buy Now</button>
+  </div>
+</div>
+
+<script src="pcod-product.js"></script>
+</body>
+</html>
