@@ -1,6 +1,6 @@
 function bookAppointment() {
   console.log("📅 Book Appointment button clicked");
-  window.location.href = "css/appointment.css";
+  window.location.href = "pages/appointment.html";
 }
 
 // ================= CHAT TOGGLE =================
