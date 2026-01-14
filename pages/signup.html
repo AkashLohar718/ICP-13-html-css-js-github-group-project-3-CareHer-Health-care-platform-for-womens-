@@ -43,5 +43,19 @@
           <p style="margin-top: -12px; font-size: 14px; text-align: center;">if already have account <a href="login.html">login</a></p>
       </form>
       </div>
+      <script>
+        
+        function updateClock() {
+     const dateSpan = document.getElementById("dateSpan");
+     const timeSpan = document.getElementById("timeSpan");
+     const now = new Date();
+
+     dateSpan.innerText = now.toDateString();
+     timeSpan.innerText = now.toLocaleTimeString();
+     }
+     updateClock();
+     setInterval(updateClock, 1000);
+    
+      </script>
 </body>
 </html>
