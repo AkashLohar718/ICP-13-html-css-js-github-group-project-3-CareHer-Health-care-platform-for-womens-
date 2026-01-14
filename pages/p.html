@@ -1,119 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Care Her – PCOD & PCOS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Care Her – PCOD & PCOS</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* ================= THEME VARIABLES ================= */
-    :root {
-      --primary:#d63384;
-      --secondary:#ff6fae;
-      --bg:#fff0f6;
-      --card:#ffffff;
-      --text:#333;
-      --nav-bg:#fff0f6;
-      --nav-link:#333;
-      --nav-link-hover:#d63384;
-      --hero-bg:#fde4ec;
-    }
-    body.dark {
-      --primary:#ff6fae;
-      --secondary:#ff9ccc;
-      --bg:#1e1e1e;
-      --card:#2c2c2c;
-      --text:#eee;
-      --nav-bg:#2c2c2c;
-      --nav-link:#eee;
-      --nav-link-hover:#ff6fae;
-      --hero-bg:#2c2c2c;
-    }
+<style>
+/* ================= THEME VARIABLES ================= */
+:root{
+  --primary:#d63384;
+  --secondary:#ff6fae;
+  --bg:#fff0f6;
+  --card:#ffffff;
+  --text:#333;
+  --nav-bg:#fff0f6;
+  --nav-link:#333;
+  --hero-bg:#fde4ec;
+}
+body.dark{
+  --primary:#ff6fae;
+  --secondary:#ff9ccc;
+  --bg:#1e1e1e;
+  --card:#2c2c2c;
+  --text:#eee;
+  --nav-bg:#2c2c2c;
+  --nav-link:#eee;
+  --hero-bg:#2c2c2c;
+}
 
-    /* ================= GLOBAL ================= */
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Roboto', sans-serif; }
-    body { background:var(--bg); color:var(--text); transition:0.3s; }
+/* ================= GLOBAL ================= */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif;}
+body{background:var(--bg);color:var(--text);transition:.3s;}
 
-    /* ================= NAVBAR ================= */
-    nav.navbar {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:12px 30px;
-      background:var(--nav-bg);
-      box-shadow:0 4px 12px rgba(0,0,0,0.1);
-      position:sticky;
-      top:0;
-      z-index:999;
-      transition:0.3s;
-    }
-    .nav-left { display:flex; align-items:center; gap:10px; }
-    .nav-logo { width:40px; height:40px; }
-    .nav-name { font-size:20px; font-weight:700; color:var(--primary); }
-    .menu { display:flex; align-items:center; gap:20px; transition:0.3s; }
-    .menu a { text-decoration:none; color:var(--nav-link); font-weight:500; padding:6px 12px; border-radius:8px; transition:0.3s; }
-    .menu a:hover, .menu a.active { background:linear-gradient(135deg,var(--primary),var(--secondary)); color:white; }
-    .nav-clock { font-size:12px; text-align:center; margin-left:15px; }
-    .theme-toggle { padding:6px 10px; border:none; border-radius:10px; cursor:pointer; background:linear-gradient(135deg,var(--primary),var(--secondary)); color:white; transition:0.3s; }
-    .theme-toggle:hover { opacity:0.9; }
-    .menu-toggle { display:none; cursor:pointer; font-size:22px; }
+/* ================= NAVBAR ================= */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 30px;
+  background:var(--nav-bg);
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.nav-logo{width:40px;height:40px;}
+.nav-name{font-size:20px;font-weight:700;color:var(--primary);}
+.menu{display:flex;align-items:center;gap:20px;}
+.menu a{
+  text-decoration:none;
+  color:var(--nav-link);
+  font-weight:500;
+  padding:6px 12px;
+  border-radius:8px;
+  transition:.3s;
+}
+.menu a:hover{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+}
+.menu-toggle{display:none;font-size:22px;cursor:pointer;color:var(--nav-link);}
+.nav-clock{font-size:12px;text-align:center;}
+.theme-toggle{
+  border:none;
+  padding:6px 10px;
+  border-radius:10px;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+}
 
-    @media(max-width:768px){
-      .menu { flex-direction:column; position:absolute; top:60px; right:-250px; width:200px; background:var(--nav-bg); padding:12px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:0.3s; }
-      .menu.active { right:15px; }
-      .menu-toggle { display:block; color:var(--nav-link); }
-    }
+/* LOGIN ICON */
+.login-icon img{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  object-fit:cover;
+}
 
-    /* ================= HERO ================= */
-    header.hero {
-      background:var(--hero-bg);
-      width:100%;
-      text-align:center;
-      padding:60px 20px;
-      transition:0.3s;
-    }
-    header.hero h1 { font-size:36px; color:var(--primary); margin-bottom:10px; }
-    header.hero p { font-size:18px; opacity:0.8; }
+/* MOBILE NAV */
+@media(max-width:768px){
+  .menu{
+    position:absolute;
+    top:65px;
+    right:-260px;
+    flex-direction:column;
+    background:var(--nav-bg);
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+    transition:.3s;
+  }
+  .menu.active{right:15px;}
+  .menu-toggle{display:block;}
+}
 
-    /* ================= MAIN CARD ================= */
-    section.card {
-      max-width:900px;
-      margin:30px auto;
-      background:var(--card);
-      padding:30px;
-      border-radius:20px;
-      box-shadow:0 20px 45px rgba(0,0,0,0.15);
-      transition:0.3s;
-    }
-    section.card h2 { text-align:center; color:var(--primary); margin-bottom:15px; }
-    section.card p { text-align:center; opacity:0.7; margin-bottom:30px; }
-    .choice-buttons { display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px; }
-    .choice-box {
-      flex:1 1 200px;
-      background:var(--hero-bg);
-      padding:20px;
-      border-radius:16px;
-      text-align:center;
-      cursor:pointer;
-      transition:0.3s;
-      box-shadow:0 6px 18px rgba(0,0,0,0.1);
-    }
-    .choice-box:hover { transform:translateY(-5px); background:linear-gradient(135deg,var(--primary),var(--secondary)); color:white; }
-    .choice-box h3 { margin-bottom:8px; }
-    .choice-box p { font-size:14px; opacity:0.8; }
+/* ================= HERO ================= */
+.hero{
+  background:var(--hero-bg);
+  text-align:center;
+  padding:60px 20px;
+}
+.hero h1{color:var(--primary);font-size:36px;}
 
-    /* ================= FOOTER ================= */
-    /* ===== FOOTER ===== */
+/* ================= CARD ================= */
+.card{
+  max-width:900px;
+  margin:30px auto;
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+.card h2{text-align:center;color:var(--primary);}
+.card p{text-align:center;opacity:.7;margin:15px 0 30px;}
+.choice-buttons{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;}
+.choice-box{
+  flex:1 1 220px;
+  background:var(--hero-bg);
+  padding:20px;
+  border-radius:16px;
+  text-align:center;
+  cursor:pointer;
+  transition:.3s;
+}
+.choice-box:hover{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  transform:translateY(-5px);
+}
+
+
+/* ===== FOOTER ===== */
 .footer{
   width:100%;
-  margin-top:40px;
+  margin-top:100px;   
   background:linear-gradient(135deg,var(--bg),#ffd6e8);
   border-top:1px solid rgba(0,0,0,0.08);
-  transition:0.3s;
 }
+
 
 body.dark .footer{
   background:linear-gradient(135deg,var(--primary),var(--secondary));
@@ -131,16 +159,10 @@ body.dark .footer{
 
 .footer-brand h3{
   color:var(--primary);
-  font-size:20px;
 }
 
 body.dark .footer-brand h3{
   color:white;
-}
-
-.footer-brand p{
-  color:var(--text);
-  opacity:0.8;
 }
 
 .footer-links{
@@ -148,15 +170,12 @@ body.dark .footer-brand h3{
   gap:18px;
   flex-wrap:wrap;
   justify-content:center;
-  margin:10px 0;
 }
 
 .footer-links a{
   text-decoration:none;
   color:var(--text);
   opacity:0.85;
-  padding:6px 10px;
-  border-radius:6px;
   transition:0.3s;
 }
 
@@ -171,7 +190,6 @@ body.dark .footer-links a{
 .footer-note{
   font-size:14px;
   opacity:0.8;
-  color:var(--text);
 }
 
 .footer-bottom{
@@ -179,7 +197,6 @@ body.dark .footer-links a{
   padding:12px;
   font-size:13px;
   background:rgba(255,255,255,0.5);
-  color:var(--text);
 }
 
 body.dark .footer-bottom{
@@ -195,8 +212,10 @@ body.dark .footer-bottom{
   }
 }
 
-  </style>
+
+</style>
 </head>
+
 <body>
 
 <!-- ===== NAVBAR ===== -->
@@ -207,18 +226,22 @@ body.dark .footer-bottom{
   </div>
 
   <div class="menu" id="menu">
-    <a href="index.html" class="active">Home</a>
+    <a href="index.html">Home</a>
     <a href="healthCheck.html">Health Check</a>
-    <a href="products.html">Products</a>
+    <a href="exercise.html">Exercise</a>
     <a href="contact.html">Contact</a>
-    <a href="reviews.html">Reviews</a>
+    <a href="review.html">Reviews</a>
+
+    <a href="signup.html" class="login-icon">
+      <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\woman.png">
+    </a>
 
     <div class="nav-clock">
       <span id="dateSpan"></span><br>
       <span id="timeSpan"></span>
     </div>
 
-    <button class="theme-toggle" id="themeBtn">🌙 Dark Mode</button>
+    <button class="theme-toggle" id="themeBtn">🌙</button>
   </div>
 
   <span class="menu-toggle" onclick="toggleMenu()">☰</span>
@@ -229,19 +252,13 @@ body.dark .footer-bottom{
   <h1>Your Companion for PCOD & PCOS Awareness</h1>
 </header>
 
-<!-- ===== MAIN CARD ===== -->
+<!-- ===== CARD ===== -->
 <section class="card">
   <h2>Choose What You Want to Learn</h2>
   <p>Select a condition to understand symptoms, risks and care.</p>
   <div class="choice-buttons">
-    <div class="choice-box pcod" onclick="goPCOD()">
-      <h3>🌺 PCOD</h3>
-      <p>Lifestyle-related hormonal imbalance</p>
-    </div>
-    <div class="choice-box pcos" onclick="goPCOS()">
-      <h3>🌼 PCOS</h3>
-      <p>Chronic hormonal & ovulation disorder</p>
-    </div>
+    <div class="choice-box" onclick="goPCOD()">🌺 PCOD</div>
+    <div class="choice-box" onclick="goPCOS()">🌼 PCOS</div>
   </div>
 </section>
 
@@ -249,58 +266,56 @@ body.dark .footer-bottom{
 <footer class="footer">
   <div class="footer-content">
     <div class="footer-brand">
-      <h3>🌸 Care Her</h3>
+      <h3>Women health care platform</h3>
       <p>PCOD & PCOS Awareness Platform</p>
     </div>
 
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="healthCheck.html">Health Check</a>
-      <a href="pproducts.html">Products</a>
+      <a href="products.html">Products</a>
       <a href="contact.html">Contact</a>
     </div>
 
     <div class="footer-note">💗 Your health, our priority</div>
   </div>
-  <div class="footer-bottom" id="footerYear"></div>
+
+  <div class="footer-bottom">
+    © <span id="year"></span> Care Her. All rights reserved.
+  </div>
 </footer>
 
 <script>
-/* ===== MENU TOGGLE ===== */
-function toggleMenu(){ document.getElementById("menu").classList.toggle("active"); }
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
 
-/* ===== CLOCK ===== */
 function updateClock(){
-  const now = new Date();
-  document.getElementById("dateSpan").innerText = now.toDateString();
-  document.getElementById("timeSpan").innerText = now.toLocaleTimeString();
+  const n=new Date();
+  dateSpan.innerText=n.toDateString();
+  timeSpan.innerText=n.toLocaleTimeString();
 }
 updateClock();
 setInterval(updateClock,1000);
 
-/* ===== DARK MODE ===== */
-const themeBtn = document.getElementById("themeBtn");
-if(localStorage.getItem("theme") === "dark"){
+const themeBtn=document.getElementById("themeBtn");
+if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add("dark");
-  themeBtn.innerText = "☀️ Light Mode";
+  themeBtn.innerText="☀️ Light Mode";
 }
-themeBtn.addEventListener("click", ()=>{
+themeBtn.onclick=()=>{
   document.body.classList.toggle("dark");
-  if(document.body.classList.contains("dark")){
-    localStorage.setItem("theme","dark");
-    themeBtn.innerText = "☀️ Light Mode";
-  } else {
-    localStorage.setItem("theme","light");
-    themeBtn.innerText = "🌙 Dark Mode";
-  }
-});
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark")?"dark":"light"
+  );
+  themeBtn.innerText=document.body.classList.contains("dark")
+    ?"☀️ Light Mode":"🌙 Dark Mode";
+};
 
-/* ===== PAGE NAVIGATION ===== */
-function goPCOD(){ window.location.href="pcod-about.html"; }
-function goPCOS(){ window.location.href="pcos-about.html"; }
+function goPCOD(){location.href="pcod-about.html";}
+function goPCOS(){location.href="pcos-about.html";}
 
-/* ===== FOOTER YEAR ===== */
-document.getElementById("footerYear").innerText=`© ${new Date().getFullYear()} Care Her. All rights reserved.`;
+footerYear.innerText=`© ${new Date().getFullYear()} Care Her. All rights reserved.`;
 </script>
 
 </body>
