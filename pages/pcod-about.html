@@ -16,6 +16,7 @@
   --bg:#fff0f6;
   --card:#ffffff;
   --text:#333;
+  --btn-bg: linear-gradient(135deg,var(--primary),var(--secondary));
 }
 body.dark{
   --primary:#ff6fae;
@@ -23,6 +24,7 @@ body.dark{
   --bg:#1e1e1e;
   --card:#2c2c2c;
   --text:#eee;
+  --btn-bg: linear-gradient(135deg,var(--primary),var(--secondary));
 }
 
 /* ===== BODY ===== */
@@ -142,7 +144,24 @@ body.dark .result{
 .risk.orange{color:orange;font-weight:600;}
 .risk.red{color:red;font-weight:600;}
 
-/* ===== FOOTER (SAME AS OTHER PAGES) ===== */
+/* ===== NEXT BUTTON ===== */
+#nextBtn{
+  margin-top:20px;
+  padding:12px 28px;
+  border:none;
+  border-radius:22px;
+  font-size:16px;
+  font-weight:500;
+  cursor:pointer;
+  color:white;
+  background:var(--btn-bg);
+  transition:0.3s;
+}
+#nextBtn:hover{
+  transform:scale(1.05);
+}
+
+/* ===== FOOTER ===== */
 .footer{
   width:100%;
   margin-top:auto;
@@ -267,11 +286,13 @@ function loadQ(){
   pEl.innerText=`Question ${current+1} of ${questions.length}`;
   bar.style.width=(current/questions.length)*100+"%";
 }
+
 function answer(yes){
-  if(yes)score++;
+  if(yes) score++;
   current++;
-  current<questions.length?loadQ():showResult();
+  current<questions.length ? loadQ() : showResult();
 }
+
 function showResult(){
   card.style.display="none";
   pEl.style.display="none";
@@ -280,14 +301,21 @@ function showResult(){
   if(score<=3){risk="Low Risk";color="green";msg="Maintain healthy lifestyle 🌱";}
   else if(score<=6){risk="Moderate Risk";color="orange";msg="Improve diet & routine ⚠️";}
   else{risk="High Risk";color="red";msg="Consult doctor 🚨";}
+  
   result.style.display="block";
   result.innerHTML=`
     <h3>Assessment Completed</h3>
     <p class="risk ${color}">${risk}</p>
     <p>${msg}</p>
     <p><b>Score:</b> ${score}/${questions.length}</p>
+    <button id="nextBtn">Check PCOD Risk</button>
   `;
+
+  document.getElementById("nextBtn").onclick = () => {
+    window.location.href = "pcod-risk.html";
+  };
 }
+
 loadQ();
 </script>
 

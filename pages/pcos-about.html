@@ -5,7 +5,6 @@
   <title>PCOS Self-Assessment Quiz | CareHer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- External CSS (relative path) -->
   <link rel="stylesheet" href="css/pcod-about.css">
 
   <style>
@@ -115,7 +114,6 @@
       background:var(--card);
       box-shadow:0 10px 25px rgba(0,0,0,0.12);
     }
-
     .hidden{display:none;}
 
     /* ===== FOOTER ===== */
@@ -148,12 +146,24 @@
       font-size:13px;
       opacity:0.8;
     }
+
+    #nextBtn{
+      margin-top:15px;
+      padding:12px 26px;
+      border:none;
+      border-radius:22px;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white;
+      cursor:pointer;
+      font-size:16px;
+    }
+    #nextBtn:hover{ opacity:0.9; }
   </style>
 </head>
 
 <body>
 
-<button id="themeBtn" onclick="toggleTheme()">🌙</button>
+<button id="themeBtn">🌙</button>
 
 <section class="quiz-wrapper">
 
@@ -195,6 +205,13 @@
 </footer>
 
 <script>
+  /* ===== DARK MODE ===== */
+  const themeBtn=document.getElementById("themeBtn");
+  themeBtn.onclick = () => {
+    document.body.classList.toggle("dark");
+  };
+
+  /* ===== QUIZ ===== */
   const questions=[
     "Do you have irregular periods?",
     "Excess facial/body hair?",
@@ -247,11 +264,13 @@
       <h3>Assessment Completed</h3>
       <p>${msg}</p>
       <p><strong>Score:</strong> ${score}/10</p>
+      <button id="nextBtn">Check PCOS Risk</button>
     `;
-  }
 
-  function toggleTheme(){
-    document.body.classList.toggle("dark");
+    // Add click event to next button
+    document.getElementById("nextBtn").onclick = () => {
+      window.location.href = "pcos-risk.html";
+    };
   }
 </script>
 

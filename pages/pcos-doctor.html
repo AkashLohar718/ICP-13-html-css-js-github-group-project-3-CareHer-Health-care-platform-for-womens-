@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>PCOS Doctor Care | CareHer</title>
-  <!-- Use relative paths -->
   <link rel="stylesheet" href="css/pcod-doctor.css">
   <style>
     /* ===== RESET ===== */
@@ -75,7 +74,7 @@
     /* ===== BUTTONS ===== */
     button{
       padding:12px 30px;
-      margin:10px;
+      margin:10px 0;
       border:none;
       border-radius:25px;
       background:linear-gradient(135deg,var(--primary),var(--secondary));
@@ -85,6 +84,20 @@
       transition:0.3s;
     }
     button:hover{ opacity:0.9; }
+
+    /* ===== BIG BUTTON ===== */
+    .big-btn{
+      width:100%;
+      padding:16px;
+      font-size:18px;
+      border-radius:25px;
+      margin:12px 0;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white;
+      cursor:pointer;
+      transition:0.3s;
+    }
+    .big-btn:hover{ opacity:0.9; }
 
     /* ===== DARK MODE BUTTON ===== */
     #themeBtn{
@@ -193,7 +206,7 @@
   <!-- ABOUT -->
   <div class="card">
     <h2>🌸 What is PCOS?</h2>
-    <p>PCOS (Polycystic Ovary Syndrome) is a hormonal disorder affecting ovulation, periods, metabolism, and reproductive health. Early medical care prevents long-term complications.</p>
+    <p>PCOS (Polycystic Ovary Syndrome) is a hormonal disorder affecting ovulation, metabolism, and overall reproductive health. Early medical care reduces complications.</p>
   </div>
   <!-- SYMPTOMS -->
   <div class="card">
@@ -210,7 +223,7 @@
   <!-- DOCTOR ROLE -->
   <div class="card">
     <h2>🩺 Doctor’s Role</h2>
-    <p>A gynecologist or endocrinologist diagnoses PCOS, manages hormonal imbalance, improves fertility, and guides long-term lifestyle care.</p>
+    <p>A gynecologist or endocrinologist diagnoses PCOS, manages hormones, guides fertility, and recommends lifestyle adjustments.</p>
   </div>
   <!-- DIAGNOSIS -->
   <div class="card">
@@ -247,7 +260,7 @@
   <!-- FERTILITY -->
   <div class="card">
     <h2>🤍 Fertility & Pregnancy Care</h2>
-    <p>PCOS is manageable. With proper treatment and monitoring, many women conceive naturally or with minimal medical support.</p>
+    <p>With proper treatment and monitoring, women with PCOS can conceive naturally or with minimal medical support.</p>
   </div>
   <!-- MENTAL HEALTH -->
   <div class="card">
@@ -257,7 +270,7 @@
   <!-- APPOINTMENT -->
   <div class="card center">
     <h2>📅 Book Doctor Appointment</h2>
-    <button onclick="bookAppointment()">Book Appointment</button>
+    <button class="big-btn" onclick="bookAppointment()">Book Appointment</button>
     <button class="chat" onclick="openChat()">Chat With Doctor</button>
   </div>
 </section>
@@ -284,7 +297,6 @@
   </div>
 </div>
 
-<!-- SCRIPT -->
 <script>
   // ===== Dark Mode Toggle =====
   const themeBtn = document.createElement('button');
@@ -295,7 +307,7 @@
 
   // ===== Appointment =====
   function bookAppointment(){
-    window.location.href = "pages/appointment.html";
+    window.location.href = "appointment.html";
   }
 
   // ===== Chatbot =====
@@ -310,7 +322,7 @@
     body.innerHTML += `<div class="user">${input.value}</div>`;
     input.value = "";
     setTimeout(() => {
-      const botMsg = `PCOS can be managed with proper medical care, lifestyle changes, and regular follow-ups 🌸`;
+      const botMsg = `PCOS can be managed with proper medical care, diet, lifestyle changes, and regular follow-ups 🌸`;
       body.innerHTML += `<div class="bot">${botMsg}</div>`;
       body.scrollTop = body.scrollHeight;
     }, 400);
