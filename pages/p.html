@@ -106,22 +106,94 @@
     .choice-box p { font-size:14px; opacity:0.8; }
 
     /* ================= FOOTER ================= */
-    footer.footer {
-      width:100%;
-      margin-top:40px;
-      background:linear-gradient(135deg,var(--bg),#ffd6e8);
-      border-top:1px solid rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-    body.dark footer.footer { background:linear-gradient(135deg,var(--primary),var(--secondary)); border-top:1px solid #333; }
-    .footer-content { max-width:1100px; margin:auto; padding:30px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; text-align:center; }
-    .footer-brand h3 { color:var(--primary); font-size:20px; }
-    .footer-brand p, .footer-links a, .footer-note { color:var(--text); opacity:0.8; }
-    .footer-links { display:flex; gap:18px; flex-wrap:wrap; justify-content:center; margin:10px 0; }
-    .footer-links a { text-decoration:none; transition:0.3s; padding:6px 10px; border-radius:6px; }
-    .footer-links a:hover { background:linear-gradient(135deg,var(--primary),var(--secondary)); color:white; }
-    .footer-bottom { text-align:center; padding:12px; font-size:13px; color:var(--text); opacity:0.7; }
-    body.dark .footer-bottom { background:rgba(0,0,0,0.2); }
+    /* ===== FOOTER ===== */
+.footer{
+  width:100%;
+  margin-top:40px;
+  background:linear-gradient(135deg,var(--bg),#ffd6e8);
+  border-top:1px solid rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+body.dark .footer{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+}
+
+.footer-content{
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  text-align:center;
+}
+
+.footer-brand h3{
+  color:var(--primary);
+  font-size:20px;
+}
+
+body.dark .footer-brand h3{
+  color:white;
+}
+
+.footer-brand p{
+  color:var(--text);
+  opacity:0.8;
+}
+
+.footer-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:10px 0;
+}
+
+.footer-links a{
+  text-decoration:none;
+  color:var(--text);
+  opacity:0.85;
+  padding:6px 10px;
+  border-radius:6px;
+  transition:0.3s;
+}
+
+.footer-links a:hover{
+  text-decoration:underline;
+}
+
+body.dark .footer-links a{
+  color:white;
+}
+
+.footer-note{
+  font-size:14px;
+  opacity:0.8;
+  color:var(--text);
+}
+
+.footer-bottom{
+  text-align:center;
+  padding:12px;
+  font-size:13px;
+  background:rgba(255,255,255,0.5);
+  color:var(--text);
+}
+
+body.dark .footer-bottom{
+  background:rgba(0,0,0,0.4);
+  color:white;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .footer-content{
+    flex-direction:column;
+    gap:20px;
+  }
+}
 
   </style>
 </head>
@@ -130,16 +202,16 @@
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="nav-left">
-    <img src="./images/logo.png" class="nav-logo">
+    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\logo.png" class="nav-logo">
     <span class="nav-name">Care Her</span>
   </div>
 
   <div class="menu" id="menu">
     <a href="index.html" class="active">Home</a>
-    <a href="./pages/healthCheck.html">Health Check</a>
-    <a href="./pages/products.html">Products</a>
-    <a href="./pages/contact.html">Contact</a>
-    <a href="./pages/reviews.html">Reviews</a>
+    <a href="healthCheck.html">Health Check</a>
+    <a href="products.html">Products</a>
+    <a href="contact.html">Contact</a>
+    <a href="reviews.html">Reviews</a>
 
     <div class="nav-clock">
       <span id="dateSpan"></span><br>
@@ -154,8 +226,7 @@
 
 <!-- ===== HERO ===== -->
 <header class="hero">
-  <h1>🌸 Care Her</h1>
-  <p>Your Companion for PCOD & PCOS Awareness</p>
+  <h1>Your Companion for PCOD & PCOS Awareness</h1>
 </header>
 
 <!-- ===== MAIN CARD ===== -->
@@ -184,9 +255,9 @@
 
     <div class="footer-links">
       <a href="index.html">Home</a>
-      <a href="./pages/healthCheck.html">Health Check</a>
-      <a href="./pages/products.html">Products</a>
-      <a href="./pages/contact.html">Contact</a>
+      <a href="healthCheck.html">Health Check</a>
+      <a href="pproducts.html">Products</a>
+      <a href="contact.html">Contact</a>
     </div>
 
     <div class="footer-note">💗 Your health, our priority</div>
