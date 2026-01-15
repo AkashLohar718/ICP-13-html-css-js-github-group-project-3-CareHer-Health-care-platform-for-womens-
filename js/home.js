@@ -62,3 +62,10 @@ function showStoredUser() {
 }
 
 showStoredUser();
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    const para = document.querySelector(".home-para");
+    para.style.opacity = "1";
+    para.style.transform = "translateY(0)";
+  }, 800);
+});
