@@ -200,3 +200,9 @@ body.dark .doctor-grid h3 {
 body.dark .doctor-grid p {
   color: #e5b6cb;
 }
+
+@media (max-width: 600px) {
+    .product {
+        width: 100%;
+    }
+}
