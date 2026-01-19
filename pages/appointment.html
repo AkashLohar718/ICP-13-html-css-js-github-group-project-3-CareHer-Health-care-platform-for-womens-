@@ -137,17 +137,9 @@ body.dark .success{
 
 /* FOOTER */
 .footer{
-  width:100%;
-  margin-top:40px;
-  background:linear-gradient(135deg,var(--bg),#ffd6e8);
-  border-top:1px solid rgba(0,0,0,0.08);
-  transition:0.3s;
-  text-align:center;
-  padding:30px 20px;
-}
-body.dark .footer{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  border-top:1px solid #333;
+  background:#ffe6f2;
+  padding:30px 40px 15px;
+  margin-top:auto;
 }
 .footer-content{
   max-width:1100px;
@@ -156,35 +148,42 @@ body.dark .footer{
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
-  text-align:center;
+  gap:15px;
 }
-.footer-brand h3{ color:var(--primary); }
-body.dark .footer-brand h3{ color:white; }
-.footer-brand p{ font-size:14px; opacity:0.85; }
-.footer-links{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  margin-bottom:12px;
-}
-.footer-links a{
-  text-decoration:none;
-  color:var(--text);
-  opacity:0.85;
-}
-body.dark .footer-links a{ color:white; }
-.footer-links a:hover{ color:var(--primary); opacity:1; }
-.footer-note{ font-size:14px; opacity:0.8; }
-.footer-bottom{ font-size:13px; opacity:0.7; transition:0.3s; }
+.footer-left h3{color:#c93779}
+.footer-left p{font-size:14px;color:#a83a6a}
 
-/* MOBILE */
-@media(max-width:768px){
-  .footer-content{ flex-direction:column; gap:15px; }
+.footer-center a{
+  margin:6px 10px;
+  text-decoration:none;
+  color:#c93779;
+  font-weight:500;
 }
+.footer-center a:hover{color:#ea1068}
+
+.footer-right{
+  font-size:14px;
+  color:#c93779;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.footer-bottom{
+  text-align:center;
+  margin-top:15px;
+  font-size:13px;
+  color:#a83a6a;
+  border-top:1px solid #f2b6d8;
+  padding-top:10px;
+}
+
+/* ===== DARK FOOTER ===== */
+body.dark .footer{background:#121212}
+body.dark .footer *{color:#ff9fcf}
+body.dark .footer-bottom{border-top:1px solid #2a2a2a}
 </style>
 </head>
-
 <body>
 
 <!-- DARK MODE BUTTON -->
@@ -253,23 +252,26 @@ body.dark .footer-links a{ color:white; }
 
 <footer class="footer">
   <div class="footer-content">
-    <div class="footer-brand">
-      <h3>Women Health Care Platform</h3>
-      <p>PCOD & PCOS Awareness Platform</p>
+    <div class="footer-left">
+      <h3>CareHer</h3>
+      <p>Women’s healthcare platform</p>
     </div>
-    
-    <div class="footer-links">
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\index.html">Home</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\healthCheck.html">Health Check</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\products.html">Products</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\contact.html">Contact</a>
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="healthcheck.html">Health Check</a>
+      <a href="exercise.html">Exercise</a>
+      <a href="contact.html">Contact</a>
+      <a href="review.html">Reviews</a>
     </div>
-    <div class="footer-note">💗 Your health, our priority</div>
+    <div class="footer-right">
+      💗 <span>Your health, our priority</span>
+    </div>
   </div>
   <div class="footer-bottom">
-    © <span id="year"></span> Care Her. All Rights Reserved.
+    © 2026 CareHer. All rights reserved.
   </div>
 </footer>
+
 
 <script>
 // ===== AUTO YEAR =====

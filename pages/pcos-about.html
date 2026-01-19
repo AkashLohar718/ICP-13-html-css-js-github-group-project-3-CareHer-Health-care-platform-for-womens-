@@ -1,199 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PCOS Self-Assessment Quiz | CareHer</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>PCOS Self-Assessment Quiz | CareHer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="css/pcod-about.css">
+<style>
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 
-  <style>
-    /* ===== RESET ===== */
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+/* ===== THEME ===== */
+:root{
+  --primary:#d63384;
+  --secondary:#ff6fae;
+  --bg:#fff0f6;
+  --card:#ffffff;
+  --text:#333;
+}
+body.dark{
+  --primary:#ff6fae;
+  --secondary:#ff9ccc;
+  --bg:#1e1e1e;
+  --card:#2c2c2c;
+  --text:#eee;
+}
 
-    /* ===== THEME VARIABLES ===== */
-    :root{
-      --primary:#d63384;
-      --secondary:#ff6fae;
-      --bg:#fff0f6;
-      --card:#ffffff;
-      --text:#333;
-    }
-    body.dark{
-      --primary:#ff6fae;
-      --secondary:#ff9ccc;
-      --bg:#1e1e1e;
-      --card:#2c2c2c;
-      --text:#eee;
-    }
+/* ===== BODY ===== */
+body{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:linear-gradient(135deg,var(--bg),#fff);
+  color:var(--text);
+  transition:.3s;
+}
+body.dark{
+  background:linear-gradient(135deg,var(--primary),var(--bg));
+}
 
-    body{
-      background:linear-gradient(135deg,var(--bg),#fff);
-      color:var(--text);
-      min-height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      transition:0.3s;
-    }
-    body.dark{
-      background:linear-gradient(135deg,var(--primary),var(--bg));
-    }
+/* ===== DARK MODE BTN ===== */
+#themeBtn{
+  position:fixed;
+  top:15px;
+  right:15px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:none;
+  background:var(--primary);
+  color:white;
+  cursor:pointer;
+  font-size:18px;
+  z-index:1000;
+}
 
-    /* ===== DARK MODE BUTTON ===== */
-    #themeBtn{
-      position:fixed;
-      top:15px;
-      right:15px;
-      width:40px;
-      height:40px;
-      border-radius:50%;
-      border:none;
-      cursor:pointer;
-      background:var(--primary);
-      color:white;
-      font-size:18px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.3);
-      z-index:1000;
-    }
+/* ===== QUIZ ===== */
+.quiz-wrapper{
+  max-width:700px;
+  width:90%;
+  margin:80px auto 40px;
+  background:var(--card);
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
 
-    /* ===== QUIZ CARD ===== */
-    .quiz-wrapper{
-      max-width:700px;
-      width:90%;
-      background:var(--card);
-      border-radius:20px;
-      padding:30px;
-      margin:80px auto 40px;
-      box-shadow:0 20px 45px rgba(0,0,0,0.15);
-      text-align:center;
-    }
+.quiz-wrapper h1{color:var(--primary);}
+.subtitle{margin:10px 0 20px;opacity:.8}
 
-    .quiz-wrapper h1{color:var(--primary);}
-    .subtitle{margin:10px 0 20px;opacity:0.8;}
-
-    /* ===== PROGRESS ===== */
-    .progress-box{
-      width:100%;
-      height:16px;
-      background:#ddd;
-      border-radius:10px;
-      overflow:hidden;
-      margin-bottom:10px;
-    }
-    #progressBar{
-      height:100%;
-      width:0%;
-      background:linear-gradient(to right,var(--primary),var(--secondary));
-      transition:0.4s;
-    }
-
-    /* ===== OPTIONS ===== */
-    .options{
-      display:flex;
-      justify-content:center;
-      gap:25px;
-      margin-top:25px;
-      flex-wrap:wrap;
-    }
-    .options button{
-      padding:12px 26px;
-      border:none;
-      border-radius:22px;
-      background:linear-gradient(135deg,var(--primary),var(--secondary));
-      color:white;
-      font-size:16px;
-      cursor:pointer;
-    }
-
-    /* ===== RESULT ===== */
-    .result{
-      margin-top:25px;
-      padding:20px;
-      border-radius:20px;
-      background:var(--card);
-      box-shadow:0 10px 25px rgba(0,0,0,0.12);
-    }
-    .hidden{display:none;}
-
-    /* ===== FOOTER ===== */
-    .footer{
+/* ===== PROGRESS ===== */
+.progress-box{
   width:100%;
-  margin-top:100px;   
-  background:linear-gradient(135deg,var(--bg),#ffd6e8);
-  border-top:1px solid rgba(0,0,0,0.08);
+  height:14px;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:10px;
+}
+#progressBar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(to right,var(--primary),var(--secondary));
+  transition:.4s;
 }
 
-
-body.dark .footer{
+/* ===== OPTIONS ===== */
+.options{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-top:25px;
+}
+.options button,
+#nextBtn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:25px;
+  font-size:16px;
+  cursor:pointer;
   background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
 }
 
+/* ===== RESULT ===== */
+.result{
+  margin-top:25px;
+  padding:20px;
+  border-radius:20px;
+  background:var(--card);
+  box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+.hidden{display:none}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:#ffe6f2;
+  padding:30px 40px 15px;
+  margin-top:auto;
+  color:#c93779;
+}
 .footer-content{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 20px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   flex-wrap:wrap;
-  text-align:center;
+  gap:15px;
 }
+.footer-left h3{margin-bottom:5px}
+.footer-left p{font-size:14px;color:#a83a6a}
 
-.footer-brand h3{
-  color:var(--primary);
-}
-
-body.dark .footer-brand h3{
-  color:white;
-}
-
-.footer-links{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.footer-links a{
+.footer-center a{
+  margin:6px 10px;
   text-decoration:none;
-  color:var(--text);
-  opacity:0.85;
-  transition:0.3s;
+  color:#c93779;
+  font-weight:500;
 }
+.footer-center a:hover{color:#ea1068}
 
-.footer-links a:hover{
-  text-decoration:underline;
-}
-
-body.dark .footer-links a{
-  color:white;
-}
-
-.footer-note{
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap:6px;
   font-size:14px;
-  opacity:0.8;
 }
 
 .footer-bottom{
   text-align:center;
-  padding:12px;
   font-size:13px;
-  background:rgba(255,255,255,0.5);
+  margin-top:15px;
+  padding-top:10px;
+  border-top:1px solid #f2b6d8;
+  color:#a83a6a;
 }
 
-body.dark .footer-bottom{
-  background:rgba(0,0,0,0.4);
-  color:white;
-}
+/* ===== DARK FOOTER ===== */
+body.dark .footer{background:#121212;color:#ff9fcf}
+body.dark .footer-center a{color:#ff9fcf}
+body.dark .footer-bottom{border-top:1px solid #2a2a2a;color:#cfa0b6}
 
-/* ===== MOBILE ===== */
+/* ===== RESPONSIVE ===== */
 @media(max-width:768px){
   .footer-content{
     flex-direction:column;
-    gap:20px;
+    text-align:center;
   }
 }
-  </style>
+</style>
 </head>
 
 <body>
@@ -201,7 +175,6 @@ body.dark .footer-bottom{
 <button id="themeBtn">🌙</button>
 
 <section class="quiz-wrapper">
-
   <h1>🌸 PCOS Self-Assessment</h1>
   <p class="subtitle">Answer honestly to understand your hormonal health</p>
 
@@ -223,91 +196,88 @@ body.dark .footer-bottom{
 
 <footer class="footer">
   <div class="footer-content">
-    <div class="footer-brand">
-      <h3>Women health care platform</h3>
-      <p>PCOD & PCOS Awareness Platform</p>
+    <div class="footer-left">
+      <h3>CareHer</h3>
+      <p>Women’s health care platform</p>
     </div>
 
-    <div class="footer-links">
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\index.html">Home</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\healthCheck.html">Health Check</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\products.html">Products</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\contact.html">Contact</a>
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="healthcheck.html">Health Check</a>
+      <a href="exercise.html">Exercise</a>
+      <a href="contact.html">Contact</a>
+      <a href="review.html">Reviews</a>
     </div>
-    <div class="footer-note">💗 Your health, our priority</div>
+
+    <div class="footer-right">
+      💗 <span>Your health, our priority</span>
+    </div>
   </div>
+
   <div class="footer-bottom">
-    &copy; 2026 CareHer. All rights reserved.
+    © CareHer. All rights reserved.
+  </div>
 </footer>
 
 <script>
-  /* ===== DARK MODE ===== */
-  const themeBtn=document.getElementById("themeBtn");
-  themeBtn.onclick = () => {
-    document.body.classList.toggle("dark");
+const themeBtn=document.getElementById("themeBtn");
+themeBtn.onclick=()=>document.body.classList.toggle("dark");
+
+const questions=[
+  "Do you have irregular periods?",
+  "Excess facial/body hair?",
+  "Frequent acne?",
+  "Weight gain issues?",
+  "Hair thinning?",
+  "Mood swings?",
+  "Sugar cravings?",
+  "Low energy?",
+  "Insulin resistance?",
+  "Family history of PCOS?"
+];
+
+let current=0,score=0;
+const q=document.getElementById("quizQuestion");
+const p=document.getElementById("quizProgress");
+const bar=document.getElementById("progressBar");
+const result=document.getElementById("quizResult");
+const card=document.getElementById("quizCard");
+
+function loadQuestion(){
+  q.innerText=questions[current];
+  p.innerText=`Question ${current+1} of ${questions.length}`;
+  bar.style.width=((current)/questions.length)*100+"%";
+}
+loadQuestion();
+
+function answer(val){
+  if(val) score++;
+  current++;
+  current<questions.length?loadQuestion():showResult();
+}
+
+function showResult(){
+  card.style.display="none";
+  p.style.display="none";
+  bar.style.width="100%";
+
+  let msg=score<=3
+    ?"Low risk. Maintain healthy lifestyle."
+    :score<=6
+    ?"Moderate risk. Monitor & improve habits."
+    :"High risk. Consult a doctor.";
+
+  result.classList.remove("hidden");
+  result.innerHTML=`
+    <h3>Assessment Completed</h3>
+    <p>${msg}</p>
+    <p><strong>Score:</strong> ${score}/10</p>
+    <button id="nextBtn">Check PCOS Risk</button>
+  `;
+  document.getElementById("nextBtn").onclick=()=>{
+    window.location.href="pcos-risk.html";
   };
-
-  /* ===== QUIZ ===== */
-  const questions=[
-    "Do you have irregular periods?",
-    "Excess facial/body hair?",
-    "Frequent acne?",
-    "Weight gain issues?",
-    "Hair thinning?",
-    "Mood swings?",
-    "Sugar cravings?",
-    "Low energy?",
-    "Insulin resistance?",
-    "Family history of PCOS?"
-  ];
-
-  let current=0, score=0;
-
-  const qEl=document.getElementById("quizQuestion");
-  const pEl=document.getElementById("quizProgress");
-  const bar=document.getElementById("progressBar");
-  const result=document.getElementById("quizResult");
-  const card=document.getElementById("quizCard");
-
-  function loadQuestion(){
-    qEl.innerText=questions[current];
-    pEl.innerText=`Question ${current+1} of ${questions.length}`;
-    bar.style.width=(current/questions.length)*100+"%";
-  }
-  loadQuestion();
-
-  function answer(val){
-    if(val) score++;
-    current++;
-    current<questions.length?loadQuestion():showResult();
-  }
-
-  function showResult(){
-    card.style.display="none";
-    pEl.style.display="none";
-    bar.style.width="100%";
-
-    let msg = score<=3
-      ?"Low risk. Maintain healthy lifestyle."
-      :score<=6
-      ?"Moderate risk. Monitor & improve habits."
-      :"High risk. Consult a doctor.";
-
-    localStorage.setItem("pcosScore",score);
-
-    result.classList.remove("hidden");
-    result.innerHTML=`
-      <h3>Assessment Completed</h3>
-      <p>${msg}</p>
-      <p><strong>Score:</strong> ${score}/10</p>
-      <button id="nextBtn">Check PCOS Risk</button>
-    `;
-
-    // Add click event to next button
-    document.getElementById("nextBtn").onclick = () => {
-      window.location.href = "pcos-risk.html";
-    };
-  }
+}
 </script>
 
 </body>
