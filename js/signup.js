@@ -178,4 +178,8 @@ function toggleTheme(){
             footer.style.backgroundColor="#ffe6f2";
             
            
-        }   
+        } 
+        function hamburger(){
+          const toggleMenu=document.getElementById("toggle-menu-container");
+         toggleMenu.classList.toggle("active");
+}  

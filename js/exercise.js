@@ -166,6 +166,10 @@ function toggleTheme(){
         exeCards[i].style.backgroundColor="#fff";
         exeCards[i].style.boxShadow = "0 1px 5px #f48fb1";}           
         }
+function hamburger(){
+          const toggleMenu=document.getElementById("toggle-menu-container");
+         toggleMenu.classList.toggle("active");
+}
 
 
 function updateClock() {

@@ -49,7 +49,6 @@ function submitForm(){
       localStorage.setItem("reviewData", JSON.stringify(reviewData));
       container.innerHTML="";
       reviews.innerHTML+=`<div class="review-card" id="review-card">
-        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
         <div class="date">Date:${reviewData.date}</div>
         <div class="card-name">
             Name:${reviewData.name}
@@ -61,6 +60,7 @@ function submitForm(){
         <div class="card-comment">
             comment:<br>${reviewData.comment}
         </div>
+        <button class="btn-delete" onclick="displayFormDeleteReview()">delete</button>
     </div>`;       
 }
 function displayFormDeleteReview(){
@@ -151,3 +151,7 @@ function toggleTheme(){
     }
            
         }
+        function hamburger(){
+          const toggleMenu=document.getElementById("toggle-menu-container");
+         toggleMenu.classList.toggle("active");
+}
