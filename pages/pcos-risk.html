@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PCOS Risk Quiz | Care Her</title>
+<title>PCOS Risk Quiz | CareHer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ===== THEME VARIABLES ===== */
+/* ===== RESET ===== */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+
+/* ===== THEME ===== */
 :root{
   --primary:#d63384;
   --secondary:#ff6fae;
@@ -14,7 +17,6 @@
   --card:#ffffff;
   --text:#333;
 }
-
 body.dark{
   --primary:#ff6fae;
   --secondary:#ff9ccc;
@@ -23,22 +25,17 @@ body.dark{
   --text:#eee;
 }
 
-/* ===== GLOBAL ===== */
-*{ box-sizing:border-box; font-family:Segoe UI,sans-serif; }
-
+/* ===== BODY ===== */
 body{
-  margin:0;
-  background:var(--bg);
-  color:var(--text);
   min-height:100vh;
   display:flex;
   flex-direction:column;
-  align-items:center;
-  transition:0.3s;
-  padding-top:80px;
+  background:var(--bg);
+  color:var(--text);
+  transition:.3s;
 }
 
-/* ===== DARK MODE BUTTON ===== */
+/* ===== DARK MODE BTN ===== */
 #themeBtn{
   position:fixed;
   top:15px;
@@ -47,25 +44,28 @@ body{
   height:40px;
   border-radius:50%;
   border:none;
-  cursor:pointer;
   background:var(--primary);
   color:white;
+  cursor:pointer;
   font-size:18px;
   z-index:1000;
 }
 
-/* ===== QUIZ CARD ===== */
+/* ===== CARD ===== */
 .card{
-  width:380px;
+  width:100%;
+  max-width:380px;
+  margin:90px auto 40px;
   background:var(--card);
   padding:25px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
   text-align:center;
 }
 
-.sub{ font-size:14px; opacity:0.7; }
+.sub{font-size:14px;opacity:.7}
 
+/* ===== PROGRESS ===== */
 .progress{
   height:8px;
   background:#ddd;
@@ -73,14 +73,14 @@ body{
   overflow:hidden;
   margin:15px 0;
 }
-
 #bar{
   height:100%;
   width:0%;
   background:linear-gradient(to right,var(--primary),var(--secondary));
-  transition:0.4s;
+  transition:.4s;
 }
 
+/* ===== OPTIONS ===== */
 .game-options button{
   width:100%;
   margin:6px 0;
@@ -90,32 +90,33 @@ body{
   cursor:pointer;
   background:var(--primary);
   color:white;
+  font-size:15px;
 }
+.game-options .mid{background:var(--secondary)}
+.game-options .secondary{background:#ddd;color:#333}
 
-.game-options .mid{ background:var(--secondary); }
-.game-options .secondary{ background:#ddd; color:#333; }
+.hidden{display:none}
 
-.hidden{ display:none; }
-
+/* ===== RESULT ===== */
 #badge{
   display:inline-block;
   padding:6px 14px;
   border-radius:20px;
   margin:10px 0;
 }
+.low{background:#e8f5e9;color:green}
+.medium{background:#fff3e0;color:#ff9800}
+.high{background:#fdecea;color:red}
 
-.low{ background:#e8f5e9; color:green; }
-.medium{ background:#fff3e0; color:#ff9800; }
-.high{ background:#fdecea; color:red; }
+ul{text-align:left;font-size:14px;margin-top:10px}
 
-ul{ text-align:left; font-size:14px; }
-
+/* ===== ACTIONS ===== */
 .actions{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:8px;
+  margin-top:10px;
 }
-
 .actions button{
   padding:10px;
   border:none;
@@ -126,19 +127,8 @@ ul{ text-align:left; font-size:14px; }
   cursor:pointer;
 }
 
-.big-btn{
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-  font-size:16px;
-  border:none;
-  border-radius:15px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:white;
-}
-
 .restart{
-  margin-top:10px;
+  margin-top:12px;
   width:100%;
   padding:10px;
   border:none;
@@ -149,49 +139,59 @@ ul{ text-align:left; font-size:14px; }
 
 /* ===== FOOTER ===== */
 .footer{
-  width:100%;
-  margin-top:40px;
-  background:linear-gradient(135deg,var(--bg),#ffd6e8);
-  border-top:1px solid rgba(0,0,0,0.08);
+  background:#ffe6f2;
+  padding:30px 40px 15px;
+  margin-top:auto;
+  color:#c93779;
 }
-
-body.dark .footer{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-}
-
 .footer-content{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
-  text-align:center;
+  gap:15px;
 }
+.footer-left h3{margin-bottom:5px}
+.footer-left p{font-size:14px;color:#a83a6a}
 
-.footer-links{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.footer-links a{
+.footer-center a{
+  margin:6px 10px;
   text-decoration:none;
-  color:var(--text);
-  opacity:0.85;
+  color:#c93779;
+  font-weight:500;
+}
+.footer-center a:hover{color:#ea1068}
+
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
 }
 
 .footer-bottom{
   text-align:center;
-  padding:12px;
   font-size:13px;
-  opacity:0.7;
-  background:rgba(255,255,255,0.5);
+  margin-top:15px;
+  padding-top:10px;
+  border-top:1px solid #f2b6d8;
+  color:#a83a6a;
 }
 
-body.dark .footer-bottom{
-  background:rgba(0,0,0,0.4);
+/* ===== DARK FOOTER ===== */
+body.dark .footer{background:#121212;color:#ff9fcf}
+body.dark .footer-center a{color:#ff9fcf}
+body.dark .footer-bottom{border-top:1px solid #2a2a2a;color:#cfa0b6}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .footer-content{
+    flex-direction:column;
+    text-align:center;
+  }
+  .actions{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
@@ -215,8 +215,6 @@ body.dark .footer-bottom{
     <button class="secondary" onclick="answer(0)">✖ No</button>
   </div>
 
-  <p id="feedback"></p>
-
   <div id="resultBox" class="hidden">
     <h2 id="resultTitle"></h2>
     <span id="badge"></span>
@@ -235,20 +233,26 @@ body.dark .footer-bottom{
 
 <footer class="footer">
   <div class="footer-content">
-    <div>
-      <h3>Women health care platformr</h3>
-      <p>PCOD & PCOS Awareness Platform</p>
+    <div class="footer-left">
+      <h3>CareHer</h3>
+      <p>Women’s health care platform</p>
     </div>
-    <div class="footer-links">
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\index.html">Home</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\healthCheck.html">Health Check</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\products.html">Products</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\contact.html">Contact</a>
+
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="healthcheck.html">Health Check</a>
+      <a href="exercise.html">Exercise</a>
+      <a href="contact.html">Contact</a>
+      <a href="review.html">Reviews</a>
     </div>
-    <div>💗 Your health, our priority</div>
+
+    <div class="footer-right">
+      💗 <span>Your health, our priority</span>
+    </div>
   </div>
+
   <div class="footer-bottom">
-    © <span id="year"></span> Care Her. All rights reserved.
+    © CareHer. All rights reserved.
   </div>
 </footer>
 
@@ -266,9 +270,7 @@ themeBtn.onclick=()=>{
   themeBtn.innerText=dark?"☀️":"🌙";
 };
 
-document.getElementById("year").innerText=new Date().getFullYear();
-
-/* ===== PCOS QUIZ LOGIC ===== */
+/* ===== QUIZ LOGIC ===== */
 const questions=[
   "Do you have irregular periods?",
   "Do you have excess facial or body hair?",
@@ -282,11 +284,10 @@ const questions=[
   "Is there a family history of PCOS?"
 ];
 
-let index=0, score=0;
+let index=0,score=0;
 const q=document.getElementById("question");
 const bar=document.getElementById("bar");
 const level=document.getElementById("levelText");
-const feedback=document.getElementById("feedback");
 
 loadQuestion();
 
@@ -299,7 +300,6 @@ function loadQuestion(){
 function answer(val){
   score+=val;
   index++;
-  feedback.innerText="💗 Thank you for sharing";
   index<questions.length?loadQuestion():showResult();
 }
 
@@ -311,20 +311,14 @@ function showResult(){
 
   let title,badge,cls,steps;
   if(score<=8){
-    title="🟢 Low Risk";
-    badge="LOW";
-    cls="low";
-    steps=["Maintain a balanced diet","Exercise regularly","Track your menstrual cycle"];
-  } else if(score<=16){
-    title="🟡 Moderate Risk";
-    badge="MEDIUM";
-    cls="medium";
-    steps=["Reduce sugar intake","Manage stress","Adopt healthy lifestyle habits"];
-  } else{
-    title="🔴 High Risk";
-    badge="HIGH";
-    cls="high";
-    steps=["Consult a gynecologist","Get hormone tests","Follow medical guidance"];
+    title="🟢 Low Risk";badge="LOW";cls="low";
+    steps=["Balanced diet","Regular exercise","Cycle tracking"];
+  }else if(score<=16){
+    title="🟡 Moderate Risk";badge="MEDIUM";cls="medium";
+    steps=["Reduce sugar","Stress management","Healthy routine"];
+  }else{
+    title="🔴 High Risk";badge="HIGH";cls="high";
+    steps=["Consult doctor","Hormone tests","Medical guidance"];
   }
 
   document.getElementById("resultTitle").innerText=title;
@@ -339,10 +333,10 @@ function showResult(){
   document.getElementById("resultBox").classList.remove("hidden");
 }
 
-function restartQuiz(){ location.reload(); }
-function openProducts(){ window.location.href="pcos-products.html"; }
-function openDoctor(){ window.location.href="pcos-doctor.html"; }
-function openDiet(){ window.location.href="pcos-diet-lifestyle.html"; }
+function restartQuiz(){location.reload();}
+function openProducts(){location.href="pcos-products.html";}
+function openDoctor(){location.href="pcos-doctor.html";}
+function openDiet(){location.href="pcos-diet-lifestyle.html";}
 </script>
 
 </body>

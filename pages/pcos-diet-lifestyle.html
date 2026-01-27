@@ -385,80 +385,104 @@ body.dark .food-card{background:#3a3a3a;}
 }
 
 /* ================= FOOTER ================= */
-/* ===== FOOTER ===== */
-.footer{
-  width:100%;
-  margin-top:auto;
-  background:linear-gradient(135deg,var(--bg),#ffd6e8);
-  border-top:1px solid rgba(0,0,0,0.08);
+.footer {
+  background: #ffe6f2;
+  padding: 30px 50px 10px;
+  color: #c93779;
+  margin-top: 80px;
 }
 
-body.dark .footer{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.footer-content{
-  max-width:1100px;
-  margin:auto;
-  padding:30px 20px;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  text-align:center;
+.footer-left h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
-.footer-brand h3{
-  color:var(--primary);
+.footer-left p {
+  font-size: 14px;
+  color: #a83a6a;
 }
 
-body.dark .footer-brand h3{
-  color:white;
+.footer-center a {
+  margin: 0 12px;
+  text-decoration: none;
+  color: #c93779;
+  font-weight: 500;
 }
 
-.footer-links{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  justify-content:center;
+.footer-center a:hover {
+  color: #ea1068;
 }
 
-.footer-links a{
-  text-decoration:none;
-  color:var(--text);
-  opacity:0.85;
-  transition:0.3s;
+.footer-right {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
 }
 
-.footer-links a:hover{
-  text-decoration:underline;
+.footer-right .heart {
+  margin-right: 6px;
 }
 
-body.dark .footer-links a{
-  color:white;
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  color: #a83a6a;
+  border-top: 1px solid #f2b6d8;
+  padding-top: 10px;
+}
+body.dark .footer {
+  background: #121212;
+  color: #ff9fcf;
 }
 
-.footer-note{
-  font-size:14px;
-  opacity:0.8;
+body.dark .footer-left h3 {
+  color: #ff8fc4;
 }
 
-.footer-bottom{
-  text-align:center;
-  padding:12px;
-  font-size:13px;
-  background:rgba(255,255,255,0.5);
+body.dark .footer-left p {
+  color: #d9a3bd;
 }
 
-body.dark .footer-bottom{
-  background:rgba(0,0,0,0.4);
-  color:white;
+body.dark .footer-center a {
+  color: #ff9fcf;
 }
 
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .footer-content{
-    flex-direction:column;
-    gap:20px;
+body.dark .footer-center a:hover {
+  color: #ff5fa2;
+}
+
+body.dark .footer-right {
+  color: #ffb3d9;
+}
+
+body.dark .footer-right .heart {
+  color: #ff5fa2;
+}
+
+body.dark .footer-bottom {
+  color: #cfa0b6;
+  border-top: 1px solid #2a2a2a;
+}
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .footer-center a {
+    display: inline-block;
+    margin: 6px;
   }
 }
 </style>
@@ -469,7 +493,7 @@ body.dark .footer-bottom{
 <!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <div class="nav-left">
-    <img src=C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\logo.png class="nav-logo">
+    <img src=logo.png class="nav-logo">
     <span class="nav-name">Care Her</span>
   </div>
 
@@ -481,7 +505,7 @@ body.dark .footer-bottom{
     <a href="review.html">Reviews</a>
 
       <a href="signup.html" class="login-icon">
-      <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\woman.png">
+      <img src="woman.png">
     </a>
 
     <div class="nav-clock">
@@ -500,15 +524,15 @@ body.dark .footer-bottom{
 
 <div class="section">
   <div class="section-head">
-    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\image.png">
+    <img src="image.png">
     <h3>🥗 PCOS-Friendly Diet</h3>
   </div>
 
   <div class="food-grid">
-    <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\fruit.png"><p>Low Sugar Fruits</p></div>
-        <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\vegetables.png"><p>Green Vegetables</p></div>
-        <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\grains.png"><p>Whole Grains</p></div>
-    <div class="food-card"><img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\nuts.png"><p>Nuts & Seeds</p></div>
+    <div class="food-card"><img src="fruit.png"><p>Low Sugar Fruits</p></div>
+        <div class="food-card"><img src="vegetables.png"><p>Green Vegetables</p></div>
+        <div class="food-card"><img src="grains.png"><p>Whole Grains</p></div>
+    <div class="food-card"><img src="nuts.png"><p>Nuts & Seeds</p></div>
   </div>
 
   <ul class="checklist">
@@ -522,7 +546,7 @@ body.dark .footer-bottom{
 
 <div class="section">
   <div class="section-head">
-    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\exercise.png">
+    <img src="exercise.png">
     <h3>🏃 Exercise</h3>
   </div>
   <ul class="checklist">
@@ -534,7 +558,7 @@ body.dark .footer-bottom{
 
 <div class="section">
   <div class="section-head">
-    <img src="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\images\sleep.png">
+    <img src="sleep.png">
     <h3>😴 Sleep & Stress</h3>
   </div>
   <ul class="checklist">
@@ -567,25 +591,32 @@ body.dark .footer-bottom{
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="footer-content">
-    <div class="footer-brand">
-      <h3>🌸 Care Her</h3>
-      <p>PCOD & PCOS Awareness Platform</p>
+
+    <div class="footer-left">
+      <h3>CareHer</h3>
+      <p>Womens health care platform</p>
     </div>
 
-    <div class="footer-links">
+    <div class="footer-center">
       <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\index.html">Home</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\healthCheck.html">Health Check</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\products.html">Products</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\contact.html">Contact</a>
+      <a href="healthcheck.html">Health Check</a>
+      <a href="exercise.html">Exercise</a>
+      <a href="contact.html">Contact</a>
+      <a href="review.html">Reviews</a>
     </div>
 
-    <div class="footer-note">💗 Your health, our priority</div>
+    <div class="footer-right">
+      <span class="heart">💗</span>
+      <span>Your health, our priority</span>
+    </div>
+
   </div>
 
   <div class="footer-bottom">
-    © <span id="year"></span> Care Her. All rights reserved.
+    © Care Her. All rights reserved.
   </div>
 </footer>
+
 <script>
 /* CLOCK */
 function updateClock(){

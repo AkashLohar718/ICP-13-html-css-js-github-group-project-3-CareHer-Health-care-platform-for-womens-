@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PCOD Risk Quiz | Care Her</title>
+<title>PCOD Risk Quiz | CareHer</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -14,7 +14,6 @@
   --card:#ffffff;
   --text:#333;
 }
-
 body.dark{
   --primary:#ff6fae;
   --secondary:#ff9ccc;
@@ -24,18 +23,17 @@ body.dark{
 }
 
 /* ===== GLOBAL ===== */
-*{ box-sizing:border-box; font-family:Segoe UI,sans-serif; }
-
+*{box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 body{
   margin:0;
+  min-height:100vh;
   background:var(--bg);
   color:var(--text);
-  min-height:100vh;
   display:flex;
   flex-direction:column;
   align-items:center;
-  transition:0.3s;
   padding-top:80px;
+  transition:.3s;
 }
 
 /* ===== DARK MODE BUTTON ===== */
@@ -45,26 +43,27 @@ body{
   right:15px;
   width:40px;
   height:40px;
-  border-radius:50%;
   border:none;
-  cursor:pointer;
+  border-radius:50%;
   background:var(--primary);
-  color:white;
+  color:#fff;
   font-size:18px;
+  cursor:pointer;
   z-index:1000;
 }
 
 /* ===== QUIZ CARD ===== */
 .card{
-  width:380px;
+  width:100%;
+  max-width:380px;
   background:var(--card);
   padding:25px;
   border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  box-shadow:0 10px 30px rgba(0,0,0,.2);
   text-align:center;
 }
 
-.sub{ font-size:14px; opacity:0.7; }
+.sub{font-size:14px;opacity:.7;}
 
 .progress{
   height:8px;
@@ -73,12 +72,11 @@ body{
   overflow:hidden;
   margin:15px 0;
 }
-
 #bar{
   height:100%;
   width:0%;
   background:linear-gradient(to right,var(--primary),var(--secondary));
-  transition:0.4s;
+  transition:.4s;
 }
 
 .game-options button{
@@ -88,14 +86,13 @@ body{
   border:none;
   border-radius:25px;
   cursor:pointer;
-  background:var(--primary);
   color:white;
+  background:var(--primary);
 }
+.game-options .mid{background:var(--secondary);}
+.game-options .secondary{background:#ddd;color:#333;}
 
-.game-options .mid{ background:var(--secondary); }
-.game-options .secondary{ background:#ddd; color:#333; }
-
-.hidden{ display:none; }
+.hidden{display:none;}
 
 #badge{
   display:inline-block;
@@ -103,19 +100,18 @@ body{
   border-radius:20px;
   margin:10px 0;
 }
+.low{background:#e8f5e9;color:green;}
+.medium{background:#fff3e0;color:#ff9800;}
+.high{background:#fdecea;color:red;}
 
-.low{ background:#e8f5e9; color:green; }
-.medium{ background:#fff3e0; color:#ff9800; }
-.high{ background:#fdecea; color:red; }
-
-ul{ text-align:left; font-size:14px; }
+ul{text-align:left;font-size:14px;padding-left:18px;}
 
 .actions{
   display:grid;
-  grid-template-columns:1fr 1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:8px;
+  margin-top:10px;
 }
-
 .actions button{
   padding:10px;
   border:none;
@@ -126,19 +122,8 @@ ul{ text-align:left; font-size:14px; }
   cursor:pointer;
 }
 
-.big-btn{
-  width:100%;
-  padding:14px;
-  margin-top:12px;
-  font-size:16px;
-  border:none;
-  border-radius:15px;
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-  color:white;
-}
-
 .restart{
-  margin-top:10px;
+  margin-top:12px;
   width:100%;
   padding:10px;
   border:none;
@@ -149,49 +134,57 @@ ul{ text-align:left; font-size:14px; }
 
 /* ===== FOOTER ===== */
 .footer{
+  margin-top:auto;
   width:100%;
-  margin-top:40px;
-  background:linear-gradient(135deg,var(--bg),#ffd6e8);
-  border-top:1px solid rgba(0,0,0,0.08);
+  background:#ffe6f2;
+  padding:25px 20px;
 }
-
-body.dark .footer{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
-}
-
 .footer-content{
   max-width:1100px;
   margin:auto;
-  padding:30px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   flex-wrap:wrap;
-  text-align:center;
+  gap:15px;
 }
+.footer-left h3{color:#c93779;}
+.footer-left p{font-size:14px;color:#a83a6a;}
 
-.footer-links{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-}
-
-.footer-links a{
+.footer-center a{
+  margin:0 8px;
   text-decoration:none;
-  color:var(--text);
-  opacity:0.85;
+  color:#c93779;
+  font-weight:500;
+  font-size:14px;
+}
+.footer-center a:hover{color:#ea1068;}
+
+.footer-right{
+  font-size:14px;
+  color:#c93779;
 }
 
 .footer-bottom{
+  margin-top:15px;
   text-align:center;
-  padding:12px;
   font-size:13px;
-  opacity:0.7;
-  background:rgba(255,255,255,0.5);
+  color:#a83a6a;
+  border-top:1px solid #f2b6d8;
+  padding-top:10px;
 }
 
-body.dark .footer-bottom{
-  background:rgba(0,0,0,0.4);
+/* ===== DARK FOOTER ===== */
+body.dark .footer{background:#121212;}
+body.dark .footer *{color:#ff9fcf;}
+body.dark .footer-bottom{border-top:1px solid #2a2a2a;}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .footer-content{
+    flex-direction:column;
+    text-align:center;
+  }
 }
 </style>
 </head>
@@ -235,20 +228,26 @@ body.dark .footer-bottom{
 
 <footer class="footer">
   <div class="footer-content">
-    <div>
-      <h3>🌸 Care Her</h3>
-      <p>PCOD & PCOS Awareness Platform</p>
+    <div class="footer-left">
+      <h3>CareHer</h3>
+      <p>Women’s healthcare platform</p>
     </div>
-   <div class="footer-links">
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\index.html">Home</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\healthCheck.html">Health Check</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\products.html">Products</a>
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\pages\contact.html">Contact</a>
+
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="healthcheck.html">Health Check</a>
+      <a href="exercise.html">Exercise</a>
+      <a href="contact.html">Contact</a>
+      <a href="review.html">Reviews</a>
     </div>
-    <div>💗 Your health, our priority</div>
+
+    <div class="footer-right">
+      💗 Your health, our priority
+    </div>
   </div>
+
   <div class="footer-bottom">
-    © <span id="year"></span> Care Her. All rights reserved.
+    © 2026 CareHer. All rights reserved.
   </div>
 </footer>
 
@@ -257,16 +256,15 @@ body.dark .footer-bottom{
 const themeBtn=document.getElementById("themeBtn");
 if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add("dark");
-  themeBtn.innerText="☀️";
+  themeBtn.textContent="☀️";
 }
 themeBtn.onclick=()=>{
   document.body.classList.toggle("dark");
-  const dark=document.body.classList.contains("dark");
-  localStorage.setItem("theme",dark?"dark":"light");
-  themeBtn.innerText=dark?"☀️":"🌙";
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark")?"dark":"light");
+  themeBtn.textContent=
+    document.body.classList.contains("dark")?"☀️":"🌙";
 };
-
-document.getElementById("year").innerText=new Date().getFullYear();
 
 /* ===== QUIZ LOGIC ===== */
 const questions=[
@@ -283,20 +281,17 @@ let index=0,score=0;
 const q=document.getElementById("question");
 const bar=document.getElementById("bar");
 const level=document.getElementById("levelText");
-const feedback=document.getElementById("feedback");
-
-loadQuestion();
 
 function loadQuestion(){
-  q.innerText=questions[index];
-  level.innerText=`Question ${index+1} of ${questions.length}`;
+  q.textContent=questions[index];
+  level.textContent=`Question ${index+1} of ${questions.length}`;
   bar.style.width=(index/questions.length)*100+"%";
 }
+loadQuestion();
 
 function answer(val){
   score+=val;
   index++;
-  feedback.innerText="💗 Thank you for sharing";
   index<questions.length?loadQuestion():showResult();
 }
 
@@ -307,14 +302,21 @@ function showResult(){
   bar.style.width="100%";
 
   let title,badge,cls,steps;
-  if(score<=5){title="🟢 Low Risk";badge="LOW";cls="low";steps=["Healthy diet","Exercise","Track cycle"];}
-  else if(score<=10){title="🟡 Moderate Risk";badge="MEDIUM";cls="medium";steps=["Reduce sugar","Stress control","Lifestyle care"];}
-  else{title="🔴 High Risk";badge="HIGH";cls="high";steps=["Consult doctor","Hormone tests","Medical care"];}
+  if(score<=5){
+    title="🟢 Low Risk";badge="LOW";cls="low";
+    steps=["Healthy diet","Exercise","Track cycle"];
+  }else if(score<=10){
+    title="🟡 Moderate Risk";badge="MEDIUM";cls="medium";
+    steps=["Reduce sugar","Stress control","Lifestyle care"];
+  }else{
+    title="🔴 High Risk";badge="HIGH";cls="high";
+    steps=["Consult doctor","Hormone tests","Medical care"];
+  }
 
-  document.getElementById("resultTitle").innerText=title;
-  document.getElementById("scoreText").innerText="Score: "+score;
+  document.getElementById("resultTitle").textContent=title;
+  document.getElementById("scoreText").textContent="Score: "+score;
   const b=document.getElementById("badge");
-  b.innerText=badge;b.className=cls;
+  b.textContent=badge;b.className=cls;
 
   const s=document.getElementById("steps");
   s.innerHTML="";
@@ -323,10 +325,10 @@ function showResult(){
   document.getElementById("resultBox").classList.remove("hidden");
 }
 
-function restartQuiz(){ localStorage.clear(); location.reload(); }
-function openProducts(){ window.location.href="pcod-products.html"; }
-function openDoctor(){ window.location.href="pcod-doctor.html"; }
-function openDiet(){ window.location.href="pcod-diet-lifestyle.html"; }
+function restartQuiz(){ location.reload(); }
+function openProducts(){ location.href="pcod-products.html"; }
+function openDoctor(){ location.href="pcod-doctor.html"; }
+function openDiet(){ location.href="pcod-diet-lifestyle.html"; }
 </script>
 
 </body>

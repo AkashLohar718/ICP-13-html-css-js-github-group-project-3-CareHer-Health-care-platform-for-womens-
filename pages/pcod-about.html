@@ -24,7 +24,6 @@ body.dark{
   --bg:#1e1e1e;
   --card:#2c2c2c;
   --text:#eee;
-  --btn-bg: linear-gradient(135deg,var(--primary),var(--secondary));
 }
 
 /* ===== BODY ===== */
@@ -72,28 +71,17 @@ body.dark #themeBtn{ background:var(--secondary); }
   margin:80px auto 40px;
   box-shadow:0 20px 45px rgba(0,0,0,0.15);
   text-align:center;
-  transition:0.3s;
 }
-body.dark .quiz-wrapper{
-  border:2px solid transparent;
-  background-image:
-    linear-gradient(var(--card),var(--card)),
-    linear-gradient(135deg,var(--primary),var(--secondary));
-  background-origin:border-box;
-  background-clip:padding-box,border-box;
-}
-
 .quiz-wrapper h1{ color:var(--primary); }
-.subtitle{ color:#555; margin:10px 0 20px; }
+.subtitle{ color:#666; margin:10px 0 20px; }
 
 /* ===== PROGRESS ===== */
 .progress-box{
   width:100%;
-  height:16px;
+  height:14px;
   background:#ddd;
   border-radius:10px;
   overflow:hidden;
-  margin-bottom:10px;
 }
 #progressBar{
   height:100%;
@@ -106,7 +94,7 @@ body.dark .quiz-wrapper{
 .options{
   display:flex;
   justify-content:center;
-  gap:25px;
+  gap:20px;
   margin-top:25px;
   flex-wrap:wrap;
 }
@@ -118,27 +106,18 @@ body.dark .quiz-wrapper{
   color:white;
   font-size:16px;
   cursor:pointer;
-  transition:0.3s;
 }
 .options button:hover{
-  transform:translateY(-3px) scale(1.05);
+  transform:scale(1.05);
 }
 
 /* ===== RESULT ===== */
 .result{
   margin-top:25px;
   padding:20px;
-  border-radius:20px;
+  border-radius:18px;
   background:var(--card);
   box-shadow:0 10px 25px rgba(0,0,0,0.12);
-}
-body.dark .result{
-  border:2px solid transparent;
-  background-image:
-    linear-gradient(var(--card),var(--card)),
-    linear-gradient(135deg,var(--primary),var(--secondary));
-  background-origin:border-box;
-  background-clip:padding-box,border-box;
 }
 .risk.green{color:green;font-weight:600;}
 .risk.orange{color:orange;font-weight:600;}
@@ -146,61 +125,69 @@ body.dark .result{
 
 /* ===== NEXT BUTTON ===== */
 #nextBtn{
-  margin-top:20px;
+  margin-top:15px;
   padding:12px 28px;
   border:none;
   border-radius:22px;
   font-size:16px;
-  font-weight:500;
   cursor:pointer;
   color:white;
   background:var(--btn-bg);
-  transition:0.3s;
-}
-#nextBtn:hover{
-  transform:scale(1.05);
 }
 
 /* ===== FOOTER ===== */
 .footer{
   width:100%;
+  background:#ffe6f2;
+  padding:25px 20px;
   margin-top:auto;
-  background:linear-gradient(135deg,var(--bg),#ffd6e8);
-  border-top:1px solid rgba(0,0,0,0.08);
-}
-body.dark .footer{
-  background:linear-gradient(135deg,var(--primary),var(--secondary));
 }
 .footer-content{
   max-width:1100px;
   margin:auto;
-  padding:30px 20px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   flex-wrap:wrap;
-  text-align:center;
+  gap:15px;
 }
-.footer-brand h3{color:var(--primary);}
-body.dark .footer-brand h3{color:white;}
-.footer-links{display:flex;gap:18px;flex-wrap:wrap;}
-.footer-links a{text-decoration:none;color:var(--text);}
-body.dark .footer-links a{color:white;}
-.footer-note{font-size:14px;opacity:0.8;}
+.footer-left h3{color:#c93779;}
+.footer-left p{font-size:14px;color:#a83a6a;}
+
+.footer-center a{
+  margin:0 8px;
+  text-decoration:none;
+  color:#c93779;
+  font-weight:500;
+  font-size:14px;
+}
+.footer-center a:hover{color:#ea1068;}
+
+.footer-right{
+  font-size:14px;
+  color:#c93779;
+}
+
 .footer-bottom{
   text-align:center;
-  padding:12px;
+  margin-top:15px;
   font-size:13px;
-  background:rgba(255,255,255,0.5);
+  color:#a83a6a;
+  border-top:1px solid #f2b6d8;
+  padding-top:10px;
 }
-body.dark .footer-bottom{
-  background:rgba(0,0,0,0.4);
-  color:white;
-}
+
+/* ===== DARK FOOTER ===== */
+body.dark .footer{background:#121212;}
+body.dark .footer *{color:#ff9fcf;}
+body.dark .footer-bottom{border-top:1px solid #2a2a2a;}
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-  .options{flex-direction:column;}
-  .footer-content{flex-direction:column;gap:20px;}
+  .footer-content{
+    flex-direction:column;
+    text-align:center;
+  }
 }
 </style>
 </head>
@@ -213,7 +200,9 @@ body.dark .footer-bottom{
   <h1>🌸 PCOD Self-Assessment</h1>
   <p class="subtitle">Answer honestly to understand your health better</p>
 
-  <div class="progress-box"><div id="progressBar"></div></div>
+  <div class="progress-box">
+    <div id="progressBar"></div>
+  </div>
   <p id="quizProgress"></p>
 
   <div id="quizCard">
@@ -229,52 +218,59 @@ body.dark .footer-bottom{
 
 <footer class="footer">
   <div class="footer-content">
-    <div class="footer-brand">
-      <h3>🌸 Care Her</h3>
-      <p>PCOD & PCOS Awareness Platform</p>
+    <div class="footer-left">
+      <h3>CareHer</h3>
+      <p>Women’s healthcare platform</p>
     </div>
-    <div class="footer-links">
-      <a href="C:\Users\aksha\OneDrive\Desktop\ICP-13-html-css-js-github-group-project-3-CareHer-Health-care-platform-for-womens-\index.html">Home</a>
-      <a href="healthCheck.html">Health Check</a>
-      <a href="products.html">Products</a>
+
+    <div class="footer-center">
+      <a href="index.html">Home</a>
+      <a href="healthcheck.html">Health Check</a>
+      <a href="exercise.html">Exercise</a>
       <a href="contact.html">Contact</a>
+      <a href="review.html">Reviews</a>
     </div>
-    <div class="footer-note">💗 Your health, our priority</div>
+
+    <div class="footer-right">
+      💗 Your health, our priority
+    </div>
   </div>
-  <div class="footer-bottom">© <span id="year"></span> Care Her. All rights reserved.</div>
+
+  <div class="footer-bottom">
+    © 2026 CareHer. All rights reserved.
+  </div>
 </footer>
 
 <script>
 /* ===== DARK MODE ===== */
-const themeBtn=document.getElementById("themeBtn");
+const themeBtn = document.getElementById("themeBtn");
 if(localStorage.getItem("theme")==="dark"){
   document.body.classList.add("dark");
-  themeBtn.innerText="☀️";
+  themeBtn.textContent="☀️";
 }
 themeBtn.onclick=()=>{
   document.body.classList.toggle("dark");
-  const dark=document.body.classList.contains("dark");
-  localStorage.setItem("theme",dark?"dark":"light");
-  themeBtn.innerText=dark?"☀️":"🌙";
+  localStorage.setItem("theme",
+    document.body.classList.contains("dark")?"dark":"light");
+  themeBtn.textContent=
+    document.body.classList.contains("dark")?"☀️":"🌙";
 };
 
-/* ===== QUIZ ===== */
-document.getElementById("year").innerText=new Date().getFullYear();
-
+/* ===== QUIZ LOGIC ===== */
 const questions=[
-"Do you have irregular periods?",
-"Do you gain weight easily?",
-"Do you have acne or oily skin?",
-"Do you face hair fall?",
-"Do you have facial/body hair growth?",
-"Do you feel tired often?",
-"Do you crave sugary food?",
-"Do you have mood swings?",
-"Do you have insulin resistance?",
-"Family history of PCOD?"
+  "Do you have irregular periods?",
+  "Do you gain weight easily?",
+  "Do you have acne or oily skin?",
+  "Do you face hair fall?",
+  "Do you have facial/body hair growth?",
+  "Do you feel tired often?",
+  "Do you crave sugary food?",
+  "Do you have mood swings?",
+  "Do you have insulin resistance?",
+  "Family history of PCOD?"
 ];
 
-let current=0,score=0;
+let current=0, score=0;
 const qEl=document.getElementById("quizQuestion");
 const pEl=document.getElementById("quizProgress");
 const bar=document.getElementById("progressBar");
@@ -282,8 +278,8 @@ const card=document.getElementById("quizCard");
 const result=document.getElementById("quizResult");
 
 function loadQ(){
-  qEl.innerText=questions[current];
-  pEl.innerText=`Question ${current+1} of ${questions.length}`;
+  qEl.textContent=questions[current];
+  pEl.textContent=`Question ${current+1} of ${questions.length}`;
   bar.style.width=(current/questions.length)*100+"%";
 }
 
@@ -297,11 +293,12 @@ function showResult(){
   card.style.display="none";
   pEl.style.display="none";
   bar.style.width="100%";
+
   let risk,color,msg;
   if(score<=3){risk="Low Risk";color="green";msg="Maintain healthy lifestyle 🌱";}
   else if(score<=6){risk="Moderate Risk";color="orange";msg="Improve diet & routine ⚠️";}
   else{risk="High Risk";color="red";msg="Consult doctor 🚨";}
-  
+
   result.style.display="block";
   result.innerHTML=`
     <h3>Assessment Completed</h3>
@@ -311,8 +308,8 @@ function showResult(){
     <button id="nextBtn">Check PCOD Risk</button>
   `;
 
-  document.getElementById("nextBtn").onclick = () => {
-    window.location.href = "pcod-risk.html";
+  document.getElementById("nextBtn").onclick=()=>{
+    window.location.href="pcod-risk.html";
   };
 }
 
